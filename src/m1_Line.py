@@ -415,7 +415,7 @@ class Line(object):
           :rtype: float
         """
         # --------------------------------------------------------------
-        # TODO: 6.
+        # DONE: 6.
         #   a. READ the above specification, including the Example.
         #        ** ASK QUESTIONS AS NEEDED. **
         #        ** Be sure you understand it, ESPECIALLY the Example.
@@ -424,10 +424,17 @@ class Line(object):
         #        They include the Example in the above doc-string.
         # --------------------------------------------------------------
 
-        #dx = (self.end.x - self.start.x)
-        #dy = (self.end.y - self.start.y)
-        #slope = dy/dx
-        #return slope
+        dx = (self.end.x - self.start.x)
+        dy = (self.end.y - self.start.y)
+        if dx > 0:
+            slope = dy/dx
+            return slope
+        elif dx < 0:
+            slope = dy/dx
+            return slope
+        else:
+            slope = math.inf
+            return slope
 
     def length(self):
         """
@@ -683,26 +690,35 @@ class Line(object):
         # are different from each other.
         ################################################################
 
-        '''''''''''
+
         dxofself = (self.end.x - self.start.x)
         dyofself = (self.end.y - self.start.y)
-        slopeofself = dyofself / dxofself
 
         dxofline2 = (line2.end.x - line2.start.x)
         dyofline2 = (line2.end.y - line2.start.y)
-        slopeofline2 = dyofline2 / dxofline2
+        slopeofself = 0
+        slopeofline2 = 0
 
-        if slopeofself == slopeofline2:
+        if dxofself > 0:
+            slopeofself = dyofself / dxofself
+        elif dxofself < 0:
+            slopeofself = dyofself / dxofself
+        else:
+            slopeofself = math.inf
+
+        if dxofline2 > 0:
+            slopeofline2 = dyofline2 / dxofline2
+        elif dxofline2 < 0:
+            slopeofline2 = dyofline2 / dxofline2
+        else:
+            slopeofline2 = math.inf
+
+        if round(slopeofself,12) == round(slopeofline2,12):
+            return True
+        elif slopeofself == math.inf == slopeofline2:
             return True
         else:
             return False
-        '''''''''''
-
-
-
-
-
-
 
     def reset(self):
         """

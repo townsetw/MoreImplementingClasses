@@ -2,8 +2,8 @@
 A   Baby   class and methods that use the Baby class.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and TYLER TOWNSEND.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -39,19 +39,19 @@ def main():
 
 
 # ----------------------------------------------------------------------
-# TODO: 2. Implement a class called   Baby   that has a constructor and
+# DONE: 2. Implement a class called   Baby   that has a constructor and
 #   two methods, as described below.  Your finished Baby class should
 #   cause the code above to display the expected output.  Hint: Your
 #   class will need instance variables that you must figure out.
 #
-# Constructor
+# Constructor DONE
 #     What comes in:
-#        -- self
-#        -- a string for the name of the baby
+#        -- self DONE
+#        -- a string for the name of the baby DONE
 #     What goes out:  Nothing (i.e., None).
 #     Side effects:
-#        -- Sets instance variables as needed
-#        -- Prints 'Hello baby <your baby's name>!'
+#        -- Sets instance variables as needed DONE
+#        -- Prints 'Hello baby <your baby's name>!' DONE
 #
 # feed_baby
 #     What comes in:
@@ -90,6 +90,34 @@ def main():
 #
 ########################################################################
 
+class Baby(object):
+
+    def __init__(self, Name):
+        self.Name = Name
+        print('Hello baby',Name + '!')
+        self.hours = 0
+
+    def hour_passes(self):
+        if self.hours == 0:
+            self.hours = self.hours + 1
+            print('Baby',self.Name,'is sleeping')
+
+        elif self.hours == 1:
+            self.hours = self.hours + 1
+            print('Baby',self.Name,'is awake. Time for food')
+
+        elif self.hours >= 2:
+            self.hours = self.hours + 1
+            print('Baby',self.Name + ' is CRYING uncontrollably! Feed '
+                                           'the '
+                                     'Baby!')
+
+
+
+
+    def feed_baby(self):
+        print('Thank you for feeding baby',self.Name + '.')
+        self.hours = 0
 
 
 
